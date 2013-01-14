@@ -28,23 +28,31 @@ echo
 echo "			Setting the environment"
 echo -e $YELLOW"*** Removing mon0 if exists ***"$ENDCOLOR
 airmon-ng stop mon0 > /dev/null
-echo -e $YELLOW"*** Getting the wifi usb interface (RT73USB) ***"$ENDCOLOR
-RT73USB=`airmon-ng| grep "rt" | awk '{print $1}'`
-echo -e $YELLOW"*** Got it! The interface is $RT73USB ***"$ENDCOLOR
+echo -e $YELLOW"*** Are you using a Realtek based wifi usb interface (RT73USB)? (y/n) ***"$ENDCOLOR
+read -s -n 1 ANSWER
+if [ "$ANSWER"  = "y" ];
+then
+	echo -e $YELLOW"*** Getting the wifi usb interface (RT73USB) ***"$ENDCOLOR
+	INTERFACE=`airmon-ng| grep "rt" | awk '{print $1}'`
+else
+	echo -e $YELLOW"*** Getting the wifi interface (usually wlan0) ***"$ENDCOLOR
+	INTERFACE=`airmon-ng| grep "wlan" | awk '{print $1}'`
+fi
+echo -e $YELLOW"*** Got it! The interface is $INTERFACE ***"$ENDCOLOR
 iw reg set BO
 sleep 2
 #This option doesn't work with RT73USB
 #echo -e $YELLOW"***Increasing the power of the interface ***"$ENDCOLOR
 #iwconfig $RT73USB txpower 30
 #sleep 2
-echo -e $YELLOW"*** $RT73USB in monitor mode ***"$ENDCOLOR
-airmon-ng start $RT73USB > /dev/null
-echo -e $YELLOW"*** Spoofing $RT73USB and mon0 ***"$ENDCOLOR
+echo -e $YELLOW"*** $INTERFACE in monitor mode ***"$ENDCOLOR
+airmon-ng start $INTERFACE > /dev/null
+echo -e $YELLOW"*** Spoofing $INTERFACE and mon0 ***"$ENDCOLOR
 MIMAC=00:11:22:33:44:55
-ifconfig $RT73USB down
+ifconfig $INTERFACE down
 sleep 2
-macchanger -m $MIMAC $RT73USB > /dev/null
-ifconfig $RT73USB up
+macchanger -m $MIMAC $INTERFACE > /dev/null
+ifconfig $INTERFACE up
 ifconfig mon0 down
 sleep 2
 macchanger -m $MIMAC mon0 > /dev/null
