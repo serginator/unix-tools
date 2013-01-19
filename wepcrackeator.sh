@@ -28,16 +28,10 @@ echo
 echo "			Setting the environment"
 echo -e $YELLOW"*** Removing mon0 if exists ***"$ENDCOLOR
 airmon-ng stop mon0 > /dev/null
-echo -e $YELLOW"*** Are you using a Realtek based wifi usb interface (RT73USB)? (y/n) ***"$ENDCOLOR
-read -s -n 1 ANSWER
-if [ "$ANSWER"  = "y" ];
-then
-	echo -e $YELLOW"*** Getting the wifi usb interface (RT73USB) ***"$ENDCOLOR
-	INTERFACE=`airmon-ng| grep "rt" | awk '{print $1}'`
-else
-	echo -e $YELLOW"*** Getting the wifi interface (usually wlan0) ***"$ENDCOLOR
-	INTERFACE=`airmon-ng| grep "wlan" | awk '{print $1}'`
-fi
+echo -e $YELLOW"*** Visible interfaces are: ***"$ENDCOLOR
+airmon-ng| grep "wlan" 
+echo -e $YELLOW"*** Please input the interface you want to use: ***"$ENDCOLOR
+read INTERFACE
 echo -e $YELLOW"*** Got it! The interface is $INTERFACE ***"$ENDCOLOR
 iw reg set BO
 sleep 2
