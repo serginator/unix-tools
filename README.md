@@ -22,7 +22,7 @@ Tool for testing WEP encripted routers. It's made to use an RT card, like RT73US
 
 - aircrack-ng
 - macchanger
-acknowledge
+
 ### Acknowledge
 
 [Victor Cuadrado](http://github.com/viccuad) for his interface selector for wepcrackeator.sh
