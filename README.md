@@ -1,7 +1,7 @@
 Unix Tools
 ===================
 
-Tools I've created some time ago to automatize useful tasks
+Tools I've created some time ago to automatize useful tasks. Run them as root!
 
 ## actualizator.sh
 
