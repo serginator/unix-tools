@@ -160,7 +160,7 @@ do
 	echo -e "	3) Metasploit v3 (/pentest/exploits/framework3/)"
 	echo -e "	4) SET (/pentest/exploits/SET/)"
 	echo -e "	5) Exploit-DB (/pentest/exploits/exploitdb/)"
-	echo -e "	6) EvilGrade (/pentest/exploits/evilgrade/)"
+#	echo -e "	6) EvilGrade (/pentest/exploits/evilgrade/)"
 	echo -e "	7) Aircrack-NG (/pentest/wireless/aircrack-ng/)"
 	echo -e "	8) Everything"
 	echo -e "	9) System cleaner"
@@ -184,9 +184,9 @@ do
 	5 )
 		funEXPLOITDB
 		;;
-	6 )
-		funEVILGRADE
-		;;
+#	6 )
+#		funEVILGRADE
+#		;;
 	7 )
 		funAIRCRACK
 		;;
@@ -196,7 +196,7 @@ do
 		funMETASPLOIT
 		funSET
 		funEXPLOITDB
-		funEVILGRADE
+#		funEVILGRADE
 		funAIRCRACK
 		;;
 	9 )
