@@ -34,8 +34,7 @@ funFASTTRACK(){
 	#cd /pentest/exploits/fasttrack
 	#sudo svn update
 	cd $EXPLOITS
-	#sudo svn co http://svn.secmaniac.com/fasttrack
-	sudo git clone https://github.com/trustedsec/social-engineer-toolkit/ SET/
+	sudo svn co http://svn.secmaniac.com/fasttrack
 	echo -e $YELLOW"*** Fast-track updated! ***"$ENDCOLOR
 	sleep 2
 }
@@ -60,7 +59,14 @@ funSET(){
 	#cd /pentest/exploits/SET
 	#sudo svn update
 	cd $EXPLOITS
-	sudo svn co http://svn.secmaniac.com/social_engineering_toolkit SET
+	#sudo svn co http://svn.secmaniac.com/social_engineering_toolkit SET
+	if [ -d "$EXPLOITS/SET" ]; 
+		then
+			cd SET
+			git pull origin
+		else
+			sudo git clone git://github.com/trustedsec/social-engineer-toolkit.git SET/
+	fi
 	echo -e $YELLOW"*** SET updated! ***"$ENDCOLOR
 	sleep 2
 }
