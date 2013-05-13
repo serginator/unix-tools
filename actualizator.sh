@@ -34,7 +34,8 @@ funFASTTRACK(){
 	#cd /pentest/exploits/fasttrack
 	#sudo svn update
 	cd $EXPLOITS
-	sudo svn co http://svn.secmaniac.com/fasttrack
+	#sudo svn co http://svn.secmaniac.com/fasttrack
+	sudo git clone https://github.com/trustedsec/social-engineer-toolkit/ SET/
 	echo -e $YELLOW"*** Fast-track updated! ***"$ENDCOLOR
 	sleep 2
 }
@@ -156,7 +157,7 @@ do
 	echo
 	echo -e "Options:"
 	echo -e "	1) APT-GET"
-	echo -e "	2) Fast-track (/pentest/exploits/fasttrack/)"
+#	echo -e "	2) Fast-track (/pentest/exploits/fasttrack/)"
 	echo -e "	3) Metasploit v3 (/pentest/exploits/framework3/)"
 	echo -e "	4) SET (/pentest/exploits/SET/)"
 	echo -e "	5) Exploit-DB (/pentest/exploits/exploitdb/)"
@@ -172,9 +173,9 @@ do
 	1 )
 		funAPT
 		;;
-	2 )
-		funFASTTRACK
-		;;
+#	2 )
+#		funFASTTRACK
+#		;;
 	3 )
 		funMETASPLOIT
 		;;
@@ -192,7 +193,7 @@ do
 		;;
 	8 )
 		funAPT
-		funFASTTRACK
+#		funFASTTRACK
 		funMETASPLOIT
 		funSET
 		funEXPLOITDB
