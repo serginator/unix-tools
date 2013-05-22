@@ -48,7 +48,17 @@ funMETASPLOIT(){
 	#cd /pentest/exploits/framework3
 	#sudo svn update
 	cd $EXPLOITS
-	sudo svn co https://metasploit.com/svn/framework3/trunk framework3
+	#sudo svn co https://metasploit.com/svn/framework3/trunk framework3
+	if [ -d "$EXPLOITS/framework3" ];
+		then
+			cd framework3
+			sudo git pull origin
+		else
+			sudo git clone git://github.com/rapid7/metasploit-framework.git framework3/
+		fi
+
+
+
 	echo -e $YELLOW"*** Metasploit v3 updated! ***"$ENDCOLOR
 	sleep 2
 }
@@ -63,7 +73,7 @@ funSET(){
 	if [ -d "$EXPLOITS/SET" ]; 
 		then
 			cd SET
-			git pull origin
+			sudo git pull origin
 		else
 			sudo git clone git://github.com/trustedsec/social-engineer-toolkit.git SET/
 	fi
