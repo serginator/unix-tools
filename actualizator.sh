@@ -112,8 +112,13 @@ funAIRCRACK(){
 	echo -e $YELLOW"*** Updating Aircrack-NG ***"$ENDCOLOR
 	#cd /pentest/wireless/aircrack-ng
 	#sudo svn update
-	cd $WIRELESS
-	sudo svn co http://trac.aircrack-ng.org/svn/trunk aircrack-ng
+	if [ -d "$WIRELESS/aircrack-ng" ];
+                then
+                        cd $WIRELESS
+                        sudo git pull origin
+                else
+                        sudo git clone git://github.com/aircrack-ng/aircrack-ng.git aircrack-ng
+        fi
 	cd aircrack-ng
 	sudo make
 	sudo make install
